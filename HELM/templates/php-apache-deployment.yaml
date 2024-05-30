@@ -18,7 +18,7 @@ spec:
           volumeMounts:
           - name: php-apache-persistent-storage
             mountPath: /var/www/html
-          command: ['sh', '-c', "wget -qO- https://wordpress.org/latest.tar.gz | tar xvz -C /tmp/ && mv /tmp/wordpress/* /var/www/html/"]
+          command: ['sh', '-c', "wget -qO- https://wordpress.org/latest.tar.gz | tar xvz -C /tmp/ && mv /tmp/wordpress/* /var/www/html/", "apt-get install php-mysqli"]
       containers:
         - name: php-apache
           image: {{ .Values.phpApache.image }}
